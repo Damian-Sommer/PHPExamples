@@ -1,0 +1,38 @@
+.grid-container{
+  display: grid;
+  grid-gap: 15px;
+  padding: 15px;
+
+}
+.grid-container .product{
+  padding: 15px;
+  background: #fcba03;
+  align-self: start;
+}
+@media (min-width: 768px) {
+  .grid-container{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 960px) {
+  .grid-container{
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (min-width: 1200px) {
+  .grid-container{
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/*
+.produkt{
+  padding: 10px;
+  margin: 20px;
+  background: #fcba03;
+  width: 20%;
+  height: 300px;
+  box-sizing: border-box;
+  font-size: 50;
+}
+*/
