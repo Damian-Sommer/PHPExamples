@@ -7,7 +7,6 @@ include_once "includes/header.php";
 // connection attributes
 $servername = "localhost";
 $username = "root";
-$password = "";
 $dbname = "webshop";
 $password = "pGAbv5FP";
 $port = "3307";
@@ -18,26 +17,28 @@ $conn = mysqli_connect($servername,$username,$password,$dbname,intval($port));
 if (mysqli_connect_errno() <> 0) {
     die("Connection failed: " . mysqli_connect_error());
 }else{
-  $query = "Select * from webshop.produkt";
+  $query = "Select * from webshop.artikel";
   $result = mysqli_query($conn, $query);
   if (mysqli_num_rows($result) > 0) {
   // output data of each row
   ?>
   <div class="grid-container">
     <?php
+    //display every Product / Article from the Database
+    //
       while($row = mysqli_fetch_assoc($result)) {
         echo '
         <div class="product">
-        <p class="id">Produkt-Nr: '.$row["idprodukt"].'</p>
-        <p class="name">'.$row["produktName"].'</p>'
+        <p class="id">Produkt-Nr: '.$row["aNr"].'</p>
+        <p class="name">'.$row["ArtUnterGruppe_augID"].'</p>'
         ?>
         <?php
-          if($row["produktBild"] != null ||$row["produktBild"] != "" ){
-            echo '<img src="'.$row["produktBild"].'" class="produktBild">';
+          if($row["image"] != null ||$row["image"] != "" ){
+            echo '<img src="'.$row["image"].'" class="produktBild">';
           }
 
-          if(($row["produktBeschreibung"] != null) || ($row["produktBeschreibung"] != "")){
-            echo '<p class="produktBeschreibung">'.$row["produktBeschreibung"].'</p>';
+          if(($row["techSpez"] != null) || ($row["techSpez"] != "")){
+            echo '<p class="produktBeschreibung">'.$row["techSpez"].'</p>';
           }
         ?>
         <?php
