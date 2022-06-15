@@ -14,6 +14,7 @@ $port = "3307";
 $conn = mysqli_connect($servername,$username,$password,$dbname,intval($port));
 
 // Check connection
+// For this Site, you havt to habe a MySQL-Server running 
 if (mysqli_connect_errno() <> 0) {
     die("Connection failed: " . mysqli_connect_error());
 }else{
