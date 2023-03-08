@@ -15,7 +15,6 @@
    }
    if(isset($_POST["submit"])){
 
-
      //Absender falls keiner angegeben wurde
      $sendermail_antwort = true;      //E-Mail Adresse des Besuchers als Absender. false= Nein ; true = Ja
      $name_von_emailfeld = "Email";   //Feld in der die Absenderadresse steht
@@ -64,7 +63,7 @@
     }
 
      if(empty($_POST["Name"]) || empty($_POST["Email"]) || empty($_POST["Betreff"]) || empty($_POST["Nachricht"])){
-       header("Location: contact.php?error=emptyFields");
+       header("Location: kontakt.php?error=emptyFields");
        exit();
      }else{
        if(strlen(validate($_POST["Name"])) <= 3){
@@ -89,7 +88,7 @@
        }
 
        if($error == true){
-         header("Location: contact.php?error=invalidFields");
+         header("Location: kontakt.php?error=invalidFields");
          exit();
        }else {
          $emailVon = $_POST["Email"];
@@ -103,10 +102,10 @@
          $mail_senden = mail($empfaenger,$betreff,$msg,$header);
 
          if($mail_senden){
-            header("Location: contact.php?Gesendet"); //Mail wurde gesendet
+            header("Location: kontakt.php?Gesendet"); //Mail wurde gesendet
             exit();
          } else{
-            header("Location: contact.php?nicht Gesendet"); //Fehler beim Senden
+            header("Location: kontakt.php?nicht Gesendet"); //Fehler beim Senden
             exit();
          }
        }
